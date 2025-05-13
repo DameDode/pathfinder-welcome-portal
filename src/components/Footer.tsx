@@ -1,38 +1,92 @@
 
-import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 border-t">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center gap-2 mb-4 md:mb-0">
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-              className="h-6 w-6 text-pathfinder-600"
+    <footer className="bg-gray-100 py-12" id="about">
+      <div className="container px-4 mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-6 w-6 text-yellow-500"
+              >
+                <polygon points="3 11 22 2 13 21 11 13 3 11" />
+              </svg>
+              <span className="text-lg font-bold text-gray-800">FindPath</span>
+            </div>
+            <p className="text-gray-600 mb-4">
+              Помагаме на средношколците да ја најдат вистинската академска патека за нивната иднина.
+            </p>
+            <Button
+              variant="outline"
+              className="border-yellow-400 text-gray-700 hover:bg-yellow-50"
             >
-              <polygon points="3 11 22 2 13 21 11 13 3 11"/>
-            </svg>
-            <span className="text-lg font-bold text-pathfinder-800">PathFinder</span>
+              Контактирајте нè
+            </Button>
           </div>
           
-          <div className="flex flex-wrap gap-4 justify-center mb-4 md:mb-0">
-            <Link to="/" className="text-gray-600 hover:text-pathfinder-600">Home</Link>
-            <Link to="/about" className="text-gray-600 hover:text-pathfinder-600">About</Link>
-            <Link to="/contact" className="text-gray-600 hover:text-pathfinder-600">Contact</Link>
-            <Link to="/privacy" className="text-gray-600 hover:text-pathfinder-600">Privacy Policy</Link>
-            <Link to="/terms" className="text-gray-600 hover:text-pathfinder-600">Terms of Service</Link>
+          <div>
+            <h3 className="font-semibold text-lg mb-4 text-gray-800">За нас</h3>
+            <ul className="space-y-2 text-gray-600">
+              <li>
+                <a href="#" className="hover:text-yellow-600">Нашата мисија</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-yellow-600">Тим</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-yellow-600">Кариера</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-yellow-600">Партнери</a>
+              </li>
+            </ul>
           </div>
           
-          <div className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} PathFinder. All rights reserved.
+          <div>
+            <h3 className="font-semibold text-lg mb-4 text-gray-800">Ресурси</h3>
+            <ul className="space-y-2 text-gray-600">
+              <li>
+                <a href="#" className="hover:text-yellow-600">Блог</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-yellow-600">Водич за студенти</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-yellow-600">Факултети</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-yellow-600">Стипендии</a>
+              </li>
+            </ul>
           </div>
+          
+          <div>
+            <h3 className="font-semibold text-lg mb-4 text-gray-800">Правно</h3>
+            <ul className="space-y-2 text-gray-600">
+              <li>
+                <a href="#" className="hover:text-yellow-600">Услови за користење</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-yellow-600">Политика за приватност</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-yellow-600">Колачиња</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="border-t border-gray-200 mt-12 pt-6 text-center text-gray-600">
+          <p>&copy; {new Date().getFullYear()} FindPath. Сите права се задржани.</p>
         </div>
       </div>
     </footer>

@@ -9,13 +9,14 @@ import { useToast } from "@/hooks/use-toast";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("login");
   const { toast } = useToast();
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Success!",
-      description: "This is a demo. Authentication will be implemented in the next phase.",
+      title: "Успешно!",
+      description: "Ова е демо. Автентикацијата ќе биде имплементирана во следната фаза.",
     });
     setIsOpen(false);
   };
@@ -36,63 +37,76 @@ const Navbar = () => {
           >
             <polygon points="3 11 22 2 13 21 11 13 3 11"/>
           </svg>
-          <span className="text-xl font-bold text-pathfinder-800">PathFinder</span>
+          <span className="text-xl font-bold text-gray-800">FindPath</span>
         </div>
         
-        <Dialog open={isOpen} onOpenChange={setIsOpen}>
-          <DialogTrigger asChild>
-            <Button className="bg-pathfinder-600 hover:bg-pathfinder-700">Login / Register</Button>
-          </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px]">
-            <DialogHeader>
-              <DialogTitle className="text-center text-2xl font-bold text-pathfinder-800">Welcome to PathFinder</DialogTitle>
-            </DialogHeader>
-            <Tabs defaultValue="login" className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="login">Login</TabsTrigger>
-                <TabsTrigger value="register">Register</TabsTrigger>
-              </TabsList>
-              <TabsContent value="login">
-                <form onSubmit={handleSubmit} className="space-y-4 pt-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="your.email@example.com" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="password">Password</Label>
-                    <Input id="password" type="password" required />
-                  </div>
-                  <Button type="submit" className="w-full bg-pathfinder-600 hover:bg-pathfinder-700">
-                    Login
-                  </Button>
-                </form>
-              </TabsContent>
-              <TabsContent value="register">
-                <form onSubmit={handleSubmit} className="space-y-4 pt-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="full-name">Full Name</Label>
-                    <Input id="full-name" type="text" placeholder="John Doe" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="register-email">Email</Label>
-                    <Input id="register-email" type="email" placeholder="your.email@example.com" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="register-password">Password</Label>
-                    <Input id="register-password" type="password" required />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="confirm-password">Confirm Password</Label>
-                    <Input id="confirm-password" type="password" required />
-                  </div>
-                  <Button type="submit" className="w-full bg-pathfinder-600 hover:bg-pathfinder-700">
-                    Register
-                  </Button>
-                </form>
-              </TabsContent>
-            </Tabs>
-          </DialogContent>
-        </Dialog>
+        <div className="hidden md:flex md:items-center md:space-x-8">
+          <a href="#process" className="text-gray-600 hover:text-gray-900">Како работи?</a>
+          <a href="#features" className="text-gray-600 hover:text-gray-900">Карактеристики</a>
+          <a href="#about" className="text-gray-600 hover:text-gray-900">За нас</a>
+        </div>
+
+        <div className="flex space-x-2">
+          <Dialog open={isOpen && activeTab === "login"} onOpenChange={(open) => { setIsOpen(open); setActiveTab("login"); }}>
+            <DialogTrigger asChild>
+              <Button variant="outline" className="border-yellow-400 text-gray-700 hover:bg-yellow-50">
+                Најава
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle className="text-center text-2xl font-bold text-gray-800">Најава на FindPath</DialogTitle>
+              </DialogHeader>
+              <form onSubmit={handleSubmit} className="space-y-4 pt-4">
+                <div className="space-y-2">
+                  <Label htmlFor="email">Е-пошта</Label>
+                  <Input id="email" type="email" placeholder="vasata.posta@primer.com" required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="password">Лозинка</Label>
+                  <Input id="password" type="password" required />
+                </div>
+                <Button type="submit" className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-800">
+                  Најава
+                </Button>
+              </form>
+            </DialogContent>
+          </Dialog>
+          
+          <Dialog open={isOpen && activeTab === "register"} onOpenChange={(open) => { setIsOpen(open); setActiveTab("register"); }}>
+            <DialogTrigger asChild>
+              <Button className="bg-yellow-400 hover:bg-yellow-500 text-gray-800">
+                Регистрирај се
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px]">
+              <DialogHeader>
+                <DialogTitle className="text-center text-2xl font-bold text-gray-800">Регистрација на FindPath</DialogTitle>
+              </DialogHeader>
+              <form onSubmit={handleSubmit} className="space-y-4 pt-4">
+                <div className="space-y-2">
+                  <Label htmlFor="full-name">Име и презиме</Label>
+                  <Input id="full-name" type="text" placeholder="Јован Јовановски" required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="register-email">Е-пошта</Label>
+                  <Input id="register-email" type="email" placeholder="vasata.posta@primer.com" required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="register-password">Лозинка</Label>
+                  <Input id="register-password" type="password" required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="confirm-password">Потврди лозинка</Label>
+                  <Input id="confirm-password" type="password" required />
+                </div>
+                <Button type="submit" className="w-full bg-yellow-400 hover:bg-yellow-500 text-gray-800">
+                  Регистрирај се
+                </Button>
+              </form>
+            </DialogContent>
+          </Dialog>
+        </div>
       </div>
     </header>
   );
