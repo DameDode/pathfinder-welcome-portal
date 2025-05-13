@@ -3,23 +3,16 @@ import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 py-12" id="about">
+    <footer className="bg-gray-100 py-12">
       <div className="container px-4 mx-auto">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+              <img 
+                src="/lovable-uploads/d355bb5f-64b8-4330-b4a6-35920b3075d2.png" 
+                alt="FindPath Logo" 
                 className="h-6 w-6 text-yellow-500"
-              >
-                <polygon points="3 11 22 2 13 21 11 13 3 11" />
-              </svg>
+              />
               <span className="text-lg font-bold text-gray-800">FindPath</span>
             </div>
             <p className="text-gray-600 mb-4">
@@ -31,24 +24,6 @@ const Footer = () => {
             >
               Контактирајте нè
             </Button>
-          </div>
-          
-          <div>
-            <h3 className="font-semibold text-lg mb-4 text-gray-800">За нас</h3>
-            <ul className="space-y-2 text-gray-600">
-              <li>
-                <a href="#" className="hover:text-yellow-600">Нашата мисија</a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-yellow-600">Тим</a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-yellow-600">Кариера</a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-yellow-600">Партнери</a>
-              </li>
-            </ul>
           </div>
           
           <div>

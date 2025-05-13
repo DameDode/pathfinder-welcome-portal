@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 
 const Navbar = () => {
@@ -25,25 +24,17 @@ const Navbar = () => {
     <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b">
       <div className="container flex items-center justify-between h-16">
         <div className="flex items-center gap-2">
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-            className="h-8 w-8 text-pathfinder-600"
-          >
-            <polygon points="3 11 22 2 13 21 11 13 3 11"/>
-          </svg>
+          <img 
+            src="/lovable-uploads/d355bb5f-64b8-4330-b4a6-35920b3075d2.png" 
+            alt="FindPath Logo" 
+            className="h-8 w-8"
+          />
           <span className="text-xl font-bold text-gray-800">FindPath</span>
         </div>
         
         <div className="hidden md:flex md:items-center md:space-x-8">
           <a href="#process" className="text-gray-600 hover:text-gray-900">Како работи?</a>
           <a href="#features" className="text-gray-600 hover:text-gray-900">Карактеристики</a>
-          <a href="#about" className="text-gray-600 hover:text-gray-900">За нас</a>
         </div>
 
         <div className="flex space-x-2">
